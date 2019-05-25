@@ -1,0 +1,393 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+  	  
+  		古侯子
+  	
+  	</title>
+  	
+  	
+  	<link href="atom.xml" rel="alternate" title="古侯子" type="application/atom+xml">
+    <link rel="stylesheet" href="asset/css/foundation.min.css" />
+    <link rel="stylesheet" href="asset/css/docs.css" />
+    <script src="asset/js/vendor/modernizr.js"></script>
+    <script src="asset/js/vendor/jquery.js"></script>
+  	<script src="asset/highlightjs/highlight.pack.js"></script>
+  	<link href="asset/highlightjs/styles/github.css" media="screen, projection" rel="stylesheet" type="text/css">
+  	<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/javascript">
+	  function before_search(){
+	    var searchVal = 'site:houqun.me ' + document.getElementById('search_input').value;
+	    document.getElementById('search_q').value = searchVal;
+	    return true;
+	  }
+	</script>
+  </head>
+  <body class="antialiased hide-extras">
+    
+    <div class="marketing off-canvas-wrap" data-offcanvas>
+      <div class="inner-wrap">
+
+		<nav class="top-bar docs-bar hide-for-small" data-topbar>
+
+			<section class="top-bar-section">
+			  	<div class="row">
+			      	<div style="position: relative;width:100%;">
+				      	<div style="position: absolute; width:100%;">
+					        <ul id="main-menu" class="left">
+					        
+					        <li id="menu-index"><a target="_self" href="/">首页</a></li>
+					        
+					        <li id="menu-about"><a target="_self" href="about.html">关于</a></li>
+					        
+					        </ul>
+
+					        <ul class="right" id="search-wrap">
+					          	<li>
+									<form target="_blank" onsubmit="return before_search();" action="http://google.com/search" method="get">
+									    <input type="hidden" id="search_q" name="q" value="" />
+									    <input tabindex="1" type="search" id="search_input"  placeholder="Search"/>
+									</form>
+								</li>
+					        </ul>
+				      	</div>
+			      	</div>
+			  	</div>
+		  	</section>
+		</nav>
+
+        <nav class="tab-bar show-for-small">
+			<a href="javascript:void(0)" class="left-off-canvas-toggle menu-icon">
+		    	<span> &nbsp; 古侯子</span>
+			</a>
+		</nav>
+
+		<aside class="left-off-canvas-menu">
+	    	<ul class="off-canvas-list">
+	       
+	       		<li><a href="index.html" target="_self">首页</a></li>
+	    		<li><a href="archives.html"  target="_self">文章存档</a></li>
+	    		<li><a href="about.html"  target="_self">关于本站</a></li>
+	    		<li><label>Categories</label></li>
+		         
+	      	</ul>
+	    </aside>
+
+		<a class="exit-off-canvas" href="#"></a>
+
+        <section id="main-content" role="main" class="scroll-container">
+        
+       
+
+ <script type="text/javascript">
+	$(function(){
+		$('#menu-index').addClass('is_active');
+
+    // how many posts per page.
+    var posts_per_page = 15;
+    // get the url path name
+    var url_path = window.location.pathname;
+    // get the position of last slash in the url path name string
+    // there must be a '/' in the url path name string
+    var pos_last_slash = url_path.lastIndexOf('/');
+    // cut the substring after the last '/'
+    var file_name = url_path.substring(pos_last_slash+1);
+ 
+    var category_name = 'all';
+    var current_page_number = 0;
+    var category ={};
+    
+    console.log(file_name);
+    console.log(category[file_name]);
+    // if the number of post can not be got, it means 
+    if (typeof(category[file_name])=="undefined"){
+      console.log('category["'+file_name+'"] is undefined');
+      // the file name is not empty, and is not 'index.html', and is not 'all.html', 
+      // otherwise the category name is 'all', and the current page number is 0
+      if(file_name != '' && file_name != 'index.html' && file_name != 'all.html'){
+        // or the file name is 'category_x.html' or 'all_x.html'
+        // cut the file name into 2 parts by '.'
+        file_name_array = file_name.split('.');
+        file_name_without_ext = file_name_array[0];
+        // find the last underline in file name
+        pos_last_underline = file_name_without_ext.lastIndexOf('_');
+        // if an underline could be found, 
+        if(pos_last_underline > 0){
+          // substriing before last underline is category name
+          // category name should be check to make sure if it is a category
+          category_name = file_name_without_ext.substring(0, pos_last_underline);
+          // and substring after last underline is the current page number
+          current_page_number = file_name_without_ext.substring(pos_last_underline+1);
+        } else {
+          // if an underline coud not be found,
+          category_name = file_name_without_ext;
+        }
+      }
+    } else {
+      // if the number of posts can be got, it means the file name is the category's name.
+      // cut the file name into 2 parts by '.'
+        file_name_array = file_name.split('.');
+        category_name = url_array[0];
+    }
+
+    var total_posts = 0;
+    var total_pages = 0;
+    // if category name is 'all', or is name of a category. Only these two options.
+    if(category_name == 'all'){
+      total_posts = 0  ;
+    } else {
+      total_posts = category[category_name + '.html'];
+    }
+    total_pages = parseInt(total_posts/posts_per_page)+1;
+    
+    console.log('category_name is ' + category_name);
+    console.log('current_page_number is ' +current_page_number);
+    console.log('total_posts is ' + total_posts);
+    console.log('total_pages is ' + total_pages);
+
+    if(parseInt(total_pages) <=9){
+      if(parseInt(current_page_number) == 0){
+        $('#pagination-div').append('<span><a href="./'+ category_name +'.html" class="current-page">1</span>');
+      } else {
+        $('#pagination-div').append('<span><a href="./'+ category_name +'.html">1</span>');
+      }
+      for (var i = 1; i < parseInt(total_pages); i++) {
+        page_url = './'+category_name+'_' + i +'.html';
+        if (current_page_number == i){
+          $('#pagination-div').append('&nbsp;&nbsp;<span><a href="'+page_url+'" class="current-page">'+(parseInt(i) + 1)+'</a></span>');
+        } else {
+          $('#pagination-div').append('&nbsp;&nbsp;<span><a href="'+page_url+'">'+(parseInt(i) + 1)+'</a></span>');
+        }
+      }
+    } else {
+      if(parseInt(current_page_number) > 0){
+        $('#pagination-div').append('<span><a href="./'+ category_name +'.html">1</span>');
+      }
+      if ((parseInt(current_page_number)-3) > 0){
+        $('#pagination-div').append('<span>&nbsp;...&nbsp;</span>');
+      }
+      
+      if ((parseInt(current_page_number)-2) > 0){
+        page_url = './' + category_name + '_' + (parseInt(current_page_number)-2) +'.html';
+        $('#pagination-div').append('&nbsp;&nbsp;<span><a href="'+page_url+'">'+(parseInt(current_page_number)-1)+'</a></span>');
+      }
+
+      if ((parseInt(current_page_number)-1) > 0){
+        page_url = './' + category_name + '_' + (parseInt(current_page_number)-1) +'.html';
+        $('#pagination-div').append('&nbsp;&nbsp;<span><a href="'+page_url+'">'+(current_page_number)+'</a></span>');
+      }
+
+      if(parseInt(current_page_number) == 0){
+        $('#pagination-div').append('<span><a href="./'+ category_name +'.html" class="current-page">1</span>');
+      } else {
+        page_url = './' + category_name + '_' + (current_page_number) +'.html';
+        $('#pagination-div').append('&nbsp;&nbsp;<span><a href="'+page_url+'" class="current-page">'+(parseInt(current_page_number)+1)+'</a></span>');
+      }
+      if ((parseInt(current_page_number)+1) < (parseInt(total_pages)-1)){
+        page_url = './' + category_name + '_' + (parseInt(current_page_number)+1) +'.html';
+        $('#pagination-div').append('&nbsp;&nbsp;<span><a href="'+page_url+'">'+(parseInt(current_page_number)+2)+'</a></span>');
+      }
+
+      if ((parseInt(current_page_number)+2) < (parseInt(total_pages)-1)){
+        page_url = './' + category_name + '_' + (parseInt(current_page_number)+2) +'.html';
+        $('#pagination-div').append('&nbsp;&nbsp;<span><a href="'+page_url+'">'+(parseInt(current_page_number)+3)+'</a></span>');
+      }
+      if ((parseInt(current_page_number)+3) < (parseInt(total_pages)-1)){
+        $('#pagination-div').append('<span>&nbsp;...&nbsp;</span>');
+      }
+      if(parseInt(current_page_number) < (parseInt(total_pages)-1)){
+        $('#pagination-div').append('&nbsp;&nbsp;<span><a href="./'+ category_name +'_'+(parseInt(total_pages)-1)+'.html">'+ total_pages +'</span>');
+      }
+    }
+	});
+</script>
+<div class="row">
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+
+		
+			<div class="article">
+                <a class="clearlink" href="15588033762086.html">
+                
+                  <h1>如何添加评论的内容？</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>暂时还不知道，如何给静态页面的网站，添加评论。</p>
+
+<p>琢磨下！</p>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2019/5/26</span>
+                    
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-3 columns">
+  			  <p class="text-left" style="padding-top:25px;">
+  			   
+  			  </p>
+			  </div>
+        <div class="large-6 columns" id="pagination-div" style="margin-top: 25px;text-align: center;">
+          
+        </div>
+			  <div class="large-3 columns">
+    			<p class="text-right" style="padding-top:25px;">
+    			
+    			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
+
+ <div class="large-4 medium-4 columns">
+  <div class="hide-for-small">
+    <div id="sidebar" class="sidebar">
+          <div id="site-info" class="site-info">
+            
+                <h1>古侯子</h1>
+                <div class="site-des"></div>
+                <div class="social">
+
+
+
+
+
+
+
+
+
+
+
+  <a target="_blank" class="rss" href="atom.xml" title="RSS">RSS</a>
+                
+              	 </div>
+          	</div>
+
+              
+            <div id="site-notice" class="side-item ">
+                <div class="side-header">
+                  <h2>声明</h2>
+                </div>
+                <div class="side-content">
+                  <div style="color:#008080; text-align:left; padding:8px;" class="bg-info site_notice">
+                    本站专注于研究企业增长Growing的策略、战术，欢迎交流。
+                  </div>
+                </div>
+            </div>
+    		
+
+			<div id="site-categories" class="side-item ">
+				<div class="side-header">
+				  	<h2>文章分类</h2>
+				</div>
+				<div class="side-content">
+
+				  	<p class="cat-list">
+				     
+				    </p>
+
+
+				</div>
+			</div>
+
+            <div id="site-categories" class="side-item">
+                <div class="side-header">
+                	<h2>最新文章</h2>
+                </div>
+                <div class="side-content">
+                <ul class="posts-list">
+	      
+		      
+			      <li class="post">
+			        <a href="15588033762086.html">如何添加评论的内容？</a>
+			      </li>
+		     
+		   
+		  		</ul>
+                </div>
+            </div>
+
+            <div id="site-categories" class="side-item">
+                <div class="side-header">
+                	<h2>资源链接</h2>
+                </div>
+                <div class="side-content">
+	                <ul class="posts-list">
+				      	<li class="post">
+				        	<a href="http://zengzhangguan.com/" target="_blank">增长官</a>
+				      	</li>
+				      	<li class="post">
+				        	<a href="http://growthbox.net/" target="_blank">增长黑盒</a>
+				      	</li>
+				      	<li class="post">
+				        	<a href="http://growingio.com" target="_blank">GrowingIO</a>
+				      	</li>
+			  		</ul>
+                </div>
+            </div>
+        </div><!-- sidebar -->
+      </div><!-- hide for small -->
+</div><!-- large 4 -->
+
+</div><!-- row -->
+
+ <div class="page-bottom clearfix">
+  <div class="row">
+   <p class="copyright">Copyright &copy; 2016, golog.cc&nbsp;&nbsp;&nbsp;&nbsp;<script src="https://s23.cnzz.com/z_stat.php?id=1276106759&web_id=1276106759" language="JavaScript"></script></p>
+  </div>
+</div>
+
+        </section>
+      </div>
+    </div>
+
+  
+    
+
+    <script src="asset/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+      function fixSidebarHeight(){
+        var w1 = $('.markdown-body').height();
+          var w2 = $('#sidebar').height();
+          if (w1 > w2) { $('#sidebar').height(w1); };
+      }
+      $(function(){
+        fixSidebarHeight();
+      })
+      $(window).load(function(){
+          fixSidebarHeight();
+      });
+     
+    </script>
+
+    
+
+
+
+  </body>
+</html>
