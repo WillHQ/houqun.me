@@ -73,6 +73,8 @@
 	    		<li><a href="about.html"  target="_self">关于本站</a></li>
 	    		<li><label>Categories</label></li>
 		        
+		            <li><a href="chuang-story.html">创事纪</a></li>
+		        
 		            <li><a href="some-notes.html">随手记</a></li>
 		         
 	      	</ul>
@@ -101,6 +103,8 @@
     var category_name = 'all';
     var current_page_number = 0;
     var category ={};
+    
+    category['chuang-story.html'] = 1;
     
     category['some-notes.html'] = 3;
     
@@ -141,7 +145,7 @@
     var total_pages = 0;
     // if category name is 'all', or is name of a category. Only these two options.
     if(category_name == 'all'){
-      total_posts = 0 +3 ;
+      total_posts = 0 +1+3 ;
     } else {
       total_posts = category[category_name + '.html'];
     }
@@ -213,6 +217,42 @@
 		<div class="markdown-body home-categories">
 
 		
+			<div class="article">
+                <a class="clearlink" href="some-realization-gained-from-talking-with-seniors.html">
+                
+                  <h1>跟学长聊天时的一些收获</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<p>最近，因为各种事情，先后跟几位学长聊天，蛮有些收获，整理于此。</p>
+
+<p><strong>其一、打工时，重要的是你的做事能力；创业时，重要的是你选择做什么事的能力。</strong></p>
+
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                   <a href="some-realization-gained-from-talking-with-seniors.html">阅读全文</a>&nbsp;&nbsp; 
+                    <span class="date">2019/7/8</span>
+                    <span>文章分类：</span> 
+          				  
+          					    <span class="posted-in"><a href='chuang-story.html'>创事纪</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
 			<div class="article">
                 <a class="clearlink" href="do-what-you-must-do-stupidly.html">
                 
@@ -401,6 +441,8 @@
 
 				  	<p class="cat-list">
 				    
+				        <a href="chuang-story.html"><strong>创事纪</strong></a>
+				    
 				        <a href="some-notes.html"><strong>随手记</strong></a>
 				     
 				    </p>
@@ -416,6 +458,12 @@
                 <div class="side-content">
                 <ul class="posts-list">
 	      
+		      
+			      <li class="post">
+			        <a href="some-realization-gained-from-talking-with-seniors.html">跟学长聊天时的一些收获</a>
+			      </li>
+		     
+		  
 		      
 			      <li class="post">
 			        <a href="do-what-you-must-do-stupidly.html">确定要做的事情，就傻傻的执行！</a>
