@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on 古侯子</title>
+    <link>https://houqun.me/tags/</link>
+    <description>Recent content in Tags on 古侯子</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 22 Jul 2019 12:34:56 +0800</lastBuildDate><atom:link href="https://houqun.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>杠杆效应</title>
+      <link>https://houqun.me/tags/%E6%9D%A0%E6%9D%86%E6%95%88%E5%BA%94/</link>
+      <pubDate>Mon, 22 Jul 2019 12:34:56 +0800</pubDate>
+      
+      <guid>https://houqun.me/tags/%E6%9D%A0%E6%9D%86%E6%95%88%E5%BA%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>能力</title>
+      <link>https://houqun.me/tags/%E8%83%BD%E5%8A%9B/</link>
+      <pubDate>Mon, 08 Jul 2019 12:34:56 +0800</pubDate>
+      
+      <guid>https://houqun.me/tags/%E8%83%BD%E5%8A%9B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>专注</title>
+      <link>https://houqun.me/tags/%E4%B8%93%E6%B3%A8/</link>
+      <pubDate>Mon, 01 Jul 2019 12:34:56 +0800</pubDate>
+      
+      <guid>https://houqun.me/tags/%E4%B8%93%E6%B3%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>习惯</title>
+      <link>https://houqun.me/tags/%E4%B9%A0%E6%83%AF/</link>
+      <pubDate>Mon, 17 Jun 2019 12:34:56 +0800</pubDate>
+      
+      <guid>https://houqun.me/tags/%E4%B9%A0%E6%83%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>惯性</title>
+      <link>https://houqun.me/tags/%E6%83%AF%E6%80%A7/</link>
+      <pubDate>Mon, 17 Jun 2019 12:34:56 +0800</pubDate>
+      
+      <guid>https://houqun.me/tags/%E6%83%AF%E6%80%A7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Office</title>
+      <link>https://houqun.me/tags/office/</link>
+      <pubDate>Sun, 26 May 2019 12:34:56 +0800</pubDate>
+      
+      <guid>https://houqun.me/tags/office/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
